@@ -22,9 +22,9 @@ struct ContentView : View {
                 
                 ForEach(store.stories) { story in
                     NavigationButton(destination: StoryWebView(story: story)) {
-                        StoryRow(story: story)
+                            StoryRow(story: story)
+                        }
                     }
-                }
                 }
                 .navigationBarTitle(Text("Hacker News"))
                 .navigationBarItems(trailing: Button(action: {
