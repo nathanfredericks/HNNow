@@ -27,7 +27,7 @@ struct ContentView : View {
                 }
                 
                 ForEach(store.stories) { story in
-                    NavigationButton(destination: StoryWebView(story: story)) {
+                    NavigationLink(destination: StoryWebView(story: story)) {
                         StoryRow(story: story)
                     }
                 }
