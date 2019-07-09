@@ -10,7 +10,6 @@
 		8F2953B422AD6DF7000625CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2953B322AD6DF7000625CB /* AppDelegate.swift */; };
 		8F2953B622AD6DF7000625CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2953B522AD6DF7000625CB /* SceneDelegate.swift */; };
 		8F2953B822AD6DF7000625CB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2953B722AD6DF7000625CB /* ContentView.swift */; };
-		8F2953BD22AD6DF9000625CB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F2953BC22AD6DF9000625CB /* Preview Assets.xcassets */; };
 		8F2953C022AD6DF9000625CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F2953BE22AD6DF9000625CB /* LaunchScreen.storyboard */; };
 		8F2953CB22AD6DFA000625CB /* HackerNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2953CA22AD6DFA000625CB /* HackerNewsTests.swift */; };
 		8F2953D622AD6DFA000625CB /* HackerNewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2953D522AD6DFA000625CB /* HackerNewsUITests.swift */; };
@@ -46,7 +45,6 @@
 		8F2953B322AD6DF7000625CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F2953B522AD6DF7000625CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8F2953B722AD6DF7000625CB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		8F2953BC22AD6DF9000625CB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8F2953BF22AD6DF9000625CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F2953C122AD6DF9000625CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F2953C622AD6DFA000625CB /* HNNowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HNNowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,17 +121,8 @@
 				8F73327722CABF3C004AC6E3 /* Assets.xcassets */,
 				8F2953BE22AD6DF9000625CB /* LaunchScreen.storyboard */,
 				8F2953C122AD6DF9000625CB /* Info.plist */,
-				8F2953BB22AD6DF9000625CB /* Preview Content */,
 			);
 			path = HNNow;
-			sourceTree = "<group>";
-		};
-		8F2953BB22AD6DF9000625CB /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				8F2953BC22AD6DF9000625CB /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		8F2953C922AD6DFA000625CB /* HNNowTests */ = {
@@ -283,7 +272,6 @@
 			files = (
 				8F2953C022AD6DF9000625CB /* LaunchScreen.storyboard in Resources */,
 				8F73327822CABF3C004AC6E3 /* Assets.xcassets in Resources */,
-				8F2953BD22AD6DF9000625CB /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
