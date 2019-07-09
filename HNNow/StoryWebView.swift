@@ -20,7 +20,7 @@ struct StoryWebView : View {
                     .foregroundColor(.blue)
                     .accessibility(label: Text("Open in Safari"))
                 }
-        )
+        ).navigationBarTitle("", displayMode: .inline)
     }
 }
 
