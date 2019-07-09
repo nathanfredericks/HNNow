@@ -7,36 +7,58 @@
 //
 
 import Foundation
-import Alamofire
 
 struct HackerNewsService {
     /// Fetches story id's
     /// - Parameter feed: Feed type
     /// - Parameter completionHandler
     private func fetchStoryIds(feed: FeedType, completionHandler: @escaping ([Int]?, Error?) -> Void) {
-        AF.request("https://hacker-news.firebaseio.com/v0/\(feed.rawValue.lowercased())stories.json").responseJSON { response in
-            switch response.result {
-            case .success(let data):
-                guard let ids = data as? [Int] else { return }
+        URLSession.shared.dataTask(with: URL(string: "https://hacker-news.firebaseio.com/v0/\(feed.rawValue.lowercased())stories.json")!) { (data, _, error) in
+            if let error = error {
+                completionHandler(nil, error)
+                return
+            }
+            
+            guard let data = data else {
+                completionHandler(nil, nil)
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let ids = try decoder.decode([Int].self, from: data)
+                
                 completionHandler(ids, nil)
-            case .failure(let error):
+            } catch {
                 completionHandler(nil, error)
             }
-        }
+        }.resume()
     }
     
     /// Fetches and decodes story
     /// - Parameter id: Item ID
     /// - Parameter completionHandler
     private func fetchStory(id: Int, completionHandler: @escaping (Story?, Error?) -> Void) {
-        AF.request("https://hacker-news.firebaseio.com/v0/item/\(id).json").responseDecodable { (response: DataResponse<Story>) in
-            switch response.result {
-            case .success(let story):
+        URLSession.shared.dataTask(with: URL(string: "https://hacker-news.firebaseio.com/v0/item/\(id).json")!) { (data, _, error) in
+            if let error = error {
+                completionHandler(nil, error)
+                return
+            }
+            
+            guard let data = data else {
+                completionHandler(nil, nil)
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let story = try decoder.decode(Story.self, from: data)
+                
                 completionHandler(story, nil)
-            case .failure(let error):
+            } catch {
                 completionHandler(nil, error)
             }
-        }
+        }.resume()
     }
     
     /// Fetch's stories from feed
