@@ -21,7 +21,7 @@ struct ContentView : View {
         NavigationView {
             List {
                 SegmentedControl(selection: $store.feedType) {
-                    ForEach(FeedType.allCases.identified(by: \.self)) { type in
+                    ForEach(FeedType.allCases, id: \.self) { type in
                         Text(type.rawValue).tag(type)
                     }
                 }

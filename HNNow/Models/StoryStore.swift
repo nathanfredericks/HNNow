@@ -11,7 +11,7 @@ import SwiftUI
 import Combine
 
 final class StoryStore: BindableObject {
-    var didChange = PassthroughSubject<StoryStore, Never>()
+    var willChange = PassthroughSubject<StoryStore, Never>()
     
     var feedType: FeedType = .top {
         didSet {
@@ -21,11 +21,11 @@ final class StoryStore: BindableObject {
     }
     
     var stories = [Story]() {
-        didSet { didChange.send(self) }
+        didSet { willChange.send(self) }
     }
     
     private(set) var isLoading: Bool = false {
-        didSet { didChange.send(self) }
+        didSet { willChange.send(self) }
     }
     
     func fetchStories(feed: FeedType) {
