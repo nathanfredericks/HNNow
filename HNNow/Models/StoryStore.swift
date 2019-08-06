@@ -11,8 +11,6 @@ import SwiftUI
 import Combine
 
 final class StoryStore: ObservableObject {
-    var objectWillChange = PassthroughSubject<Void, Never>()
-    
     var feedType: FeedType = .top {
         didSet {
             stories.removeAll()
@@ -20,14 +18,10 @@ final class StoryStore: ObservableObject {
         }
     }
     
-    var stories = [Story]() {
-        didSet { objectWillChange.send(()) }
-    }
+    @Published var stories = [Story]()
     
-    private(set) var isLoading: Bool = false {
-        didSet { objectWillChange.send(()) }
-    }
-    
+    @Published private(set) var isLoading = false
+
     func fetchStories(feed: FeedType) {
         let hackerNewsService = HackerNewsService()
         
