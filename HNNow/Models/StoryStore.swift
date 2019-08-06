@@ -10,8 +10,8 @@ import Foundation
 import SwiftUI
 import Combine
 
-final class StoryStore: BindableObject {
-    var willChange = PassthroughSubject<StoryStore, Never>()
+final class StoryStore: ObservableObject {
+    var objectWillChange = PassthroughSubject<Void, Never>()
     
     var feedType: FeedType = .top {
         didSet {
@@ -21,11 +21,11 @@ final class StoryStore: BindableObject {
     }
     
     var stories = [Story]() {
-        didSet { willChange.send(self) }
+        didSet { objectWillChange.send(()) }
     }
     
     private(set) var isLoading: Bool = false {
-        didSet { willChange.send(self) }
+        didSet { objectWillChange.send(()) }
     }
     
     func fetchStories(feed: FeedType) {

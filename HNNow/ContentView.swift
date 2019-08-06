@@ -15,38 +15,37 @@ enum FeedType: String, CaseIterable {
 }
 
 struct ContentView : View {
-    @ObjectBinding var store = StoryStore()
+    @ObservedObject var store = StoryStore()
     
     var body: some View {
         NavigationView {
             List {
-                SegmentedControl(selection: $store.feedType) {
+                Picker("Opts", selection: $store.feedType) {
                     ForEach(FeedType.allCases, id: \.self) { type in
                         Text(type.rawValue).tag(type)
                     }
-                }
+                }.pickerStyle(SegmentedPickerStyle())
                 
                 ForEach(store.stories) { story in
                     NavigationLink(destination: StoryWebView(story: story)) {
                         StoryRow(story: story)
                     }
                 }
+            }
+            .navigationBarTitle(Text("HN Now"))
+            .navigationBarItems(trailing: Button(action: {
+                guard !self.store.isLoading else { return }
+                
+                self.store.fetchStories(feed: self.$store.feedType.value)
+            }) {
+                if store.isLoading {
+                    ActivityIndicatorView(style: .medium)
+                } else {
+                    Image(systemName: "arrow.clockwise")
+                        .foregroundColor(.blue)
+                        .accessibility(label: Text("Reload"))
                 }
-                .navigationBarTitle(Text("HN Now"))
-                .navigationBarItems(trailing: Button(action: {
-                    guard !self.store.isLoading else { return }
-                    
-                    self.store.fetchStories(feed: self.$store.feedType.value)
-                }) {
-                    if store.isLoading {
-                        ActivityIndicatorView(style: .medium)
-                    } else {
-                        Image(systemName: "arrow.clockwise")
-                            .foregroundColor(.blue)
-                            .accessibility(label: Text("Reload"))
-                    }
-                    }
-            )
+            })
         }
     }
 }
