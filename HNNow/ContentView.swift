@@ -20,7 +20,7 @@ struct ContentView : View {
     var body: some View {
         NavigationView {
             List {
-                Picker("Opts", selection: $store.feedType) {
+                Picker("Feed type", selection: $store.feedType) {
                     ForEach(FeedType.allCases, id: \.self) { type in
                         Text(type.rawValue).tag(type)
                     }
