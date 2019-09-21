@@ -16,8 +16,7 @@ enum FeedType: String, CaseIterable {
 
 struct ContentView : View {
     @ObservedObject var store = StoryStore()
-    private var shownRowCount = 0
-
+    
     var body: some View {
         NavigationView {
             List {
