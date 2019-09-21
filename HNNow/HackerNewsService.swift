@@ -61,48 +61,73 @@ struct HackerNewsService {
         }.resume()
     }
     
-    /// Fetch's stories from feed
-    /// - Parameter feed: Feed type
-    /// - Parameter completionHandler
+//    /// Fetch's stories from feed
+//    /// - Parameter feed: Feed type
+//    /// - Parameter completionHandler
+//    func fetchStories(feed: FeedType, completionHandler: @escaping ([Story]?, Error?) -> Void) {
+//        fetchStoryIds(feed: feed) { (ids, error) in
+//            guard error == nil else {
+//                completionHandler(nil, error)
+//                return
+//            }
+//
+//            guard let ids = ids else {
+//                completionHandler(nil, error)
+//                return
+//            }
+//
+//            let dispatchGroup = DispatchGroup()
+//
+//            var stories = [Story]()
+//
+//            for id in ids {
+//                dispatchGroup.enter()
+//
+//                self.fetchStory(id: id) { (story, error) in
+//                    guard error == nil else {
+//                        dispatchGroup.leave()
+//                        return
+//                    }
+//
+//                    guard let story = story else {
+//                        dispatchGroup.leave()
+//                        return
+//                    }
+//
+//                    stories.append(story)
+//
+//                    dispatchGroup.leave()
+//                }
+//            }
+//
+//            dispatchGroup.notify(queue: .main) {
+//                completionHandler(stories, nil)
+//            }
+//        }
+//    }
+    
     func fetchStories(feed: FeedType, completionHandler: @escaping ([Story]?, Error?) -> Void) {
-        fetchStoryIds(feed: feed) { (ids, error) in
-            guard error == nil else {
+        URLSession.shared.dataTask(with: URL(string: "https://hn-frontpage.nathfreder.workers.dev/")!) { (data, _, error) in
+            if let error = error {
                 completionHandler(nil, error)
                 return
             }
             
-            guard let ids = ids else {
-                completionHandler(nil, error)
+            guard let data = data else {
+                completionHandler(nil, nil)
                 return
             }
             
-            let dispatchGroup = DispatchGroup()
-            
-            var stories = [Story]()
-            
-            for id in ids {
-                dispatchGroup.enter()
+            do {
+                let decoder = JSONDecoder()
+                let stories = try decoder.decode([Story].self, from: data)
                 
-                self.fetchStory(id: id) { (story, error) in
-                    guard error == nil else {
-                        dispatchGroup.leave()
-                        return
-                    }
-                    
-                    guard let story = story else {
-                        dispatchGroup.leave()
-                        return
-                    }
-                    
-                    stories.append(story)
-                    
-                    dispatchGroup.leave()
+                DispatchQueue.main.async {
+                    completionHandler(stories, nil)
                 }
+            } catch {
+                completionHandler(nil, error)
             }
-            
-            dispatchGroup.notify(queue: .main) {
-                completionHandler(stories, nil)
-            }
-        }
+        }.resume()
     }
 }
