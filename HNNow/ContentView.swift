@@ -16,7 +16,8 @@ enum FeedType: String, CaseIterable {
 
 struct ContentView : View {
     @ObservedObject var store = StoryStore()
-    
+    private var shownRowCount = 0
+
     var body: some View {
         NavigationView {
             List {
@@ -29,6 +30,9 @@ struct ContentView : View {
                 ForEach(store.stories) { story in
                     NavigationLink(destination: StoryWebView(story: story)) {
                         StoryRow(story: story)
+                            .onAppear {
+                                self.store.incrementVisibleRows()
+                            }
                     }
                 }
             }
@@ -40,10 +44,6 @@ struct ContentView : View {
             }) {
                 if store.isLoading {
                     ActivityIndicatorView(style: .medium)
-                } else {
-                    Image(systemName: "arrow.clockwise")
-                        .foregroundColor(.blue)
-                        .accessibility(label: Text("Reload"))
                 }
             })
         }

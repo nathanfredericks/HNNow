@@ -19,15 +19,27 @@ final class StoryStore: ObservableObject {
     }
     
     @Published var stories = [Story]()
-    
     @Published private(set) var isLoading = false
 
-    func fetchStories(feed: FeedType) {
+    private var visibleRows = 0
+    private var page = 0
+    
+    func incrementVisibleRows() {
+        visibleRows += 1
+        
+        // If there are 5 rows left, fetch more stories
+        if stories.count - visibleRows == 5 {
+            page += 1
+            fetchStories(feed: .top, page: page)
+        }
+    }
+    
+    func fetchStories(feed: FeedType, page: Int = 0) {
         let hackerNewsService = HackerNewsService()
         
         isLoading = true
         
-        hackerNewsService.fetchStories(feed: feed) { (stories, error) in
+        hackerNewsService.fetchStories(feed: feed, page: page) { (stories, error) in
             guard error == nil else {
                 self.isLoading = false
                 return
@@ -38,12 +50,12 @@ final class StoryStore: ObservableObject {
                 return
             }
             
-            self.stories = stories
+            self.stories += stories
             self.isLoading = false
         }
     }
     
     init() {
-        fetchStories(feed: feedType)
+        fetchStories(feed: feedType, page: page)
     }
 }

@@ -106,15 +106,28 @@ struct HackerNewsService {
 //        }
 //    }
     
-    func fetchStories(feed: FeedType, completionHandler: @escaping ([Story]?, Error?) -> Void) {
-        URLSession.shared.dataTask(with: URL(string: "https://hn-frontpage.nathfreder.workers.dev/")!) { (data, _, error) in
+    func fetchStories(feed: FeedType, page: Int = 0, completionHandler: @escaping ([Story]?, Error?) -> Void) {
+        let url = URL(string: "https://hnnow.nathfreder.workers.dev/")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let payload = """
+{
+  "page": \(page)
+}
+""".data(using: .utf8)!
+        
+        URLSession.shared.uploadTask(with: request, from: payload) { (data, _, error) in
             if let error = error {
-                completionHandler(nil, error)
+                DispatchQueue.main.async {
+                    completionHandler(nil, error)
+                }
                 return
             }
             
             guard let data = data else {
-                completionHandler(nil, nil)
+                DispatchQueue.main.async {
+                    completionHandler(nil, nil)
+                }
                 return
             }
             
@@ -126,7 +139,9 @@ struct HackerNewsService {
                     completionHandler(stories, nil)
                 }
             } catch {
-                completionHandler(nil, error)
+                DispatchQueue.main.async {
+                    completionHandler(nil, error)
+                }
             }
         }.resume()
     }
