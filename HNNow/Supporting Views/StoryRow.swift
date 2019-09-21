@@ -15,6 +15,7 @@ struct StoryRow : View {
         VStack(alignment: .leading) {
             Text(story.title)
                 .font(.headline)
+                .lineLimit(2)
             Text("\(story.score) points by \(story.by)")
                 .font(.subheadline)
         }
