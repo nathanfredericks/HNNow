@@ -14,6 +14,8 @@ final class StoryStore: ObservableObject {
     var feedType: FeedType = .top {
         didSet {
             stories.removeAll()
+            page = 0
+            visibleRows = 0
             fetchStories(feed: feedType)
         }
     }
