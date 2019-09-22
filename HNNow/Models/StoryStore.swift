@@ -32,7 +32,7 @@ final class StoryStore: ObservableObject {
         // If there are 5 rows left, fetch more stories
         if stories.count - visibleRows == 5 {
             page += 1
-            fetchStories(feed: .top, page: page)
+            fetchStories(feed: feedType, page: page)
         }
     }
     
