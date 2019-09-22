@@ -11,7 +11,7 @@
 **September**
 - [x] Infinite scroll
 - [x] Move story fetching to CF Workers
-- [ ] Fix feed switching
+- [x] Fix feed switching
 
 **October**
 - [ ] Use Combine _and_ `URLSession` for network requests

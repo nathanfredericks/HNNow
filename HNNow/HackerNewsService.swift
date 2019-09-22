@@ -112,6 +112,7 @@ struct HackerNewsService {
         request.httpMethod = "POST"
         let payload = """
 {
+  "feed": "\(feed.rawValue.lowercased())",
   "page": \(page)
 }
 """.data(using: .utf8)!
