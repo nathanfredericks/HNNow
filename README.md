@@ -29,5 +29,5 @@
 - [ ] Switch from segmented controls to tab bar
 
 **January** 
-- Add Siri Shortcuts support
-- Add better accessability and localizations
+- [ ] Add Siri Shortcuts support
+- [ ] Add better accessability and localizations
