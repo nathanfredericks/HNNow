@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C7E7A1123440B1B00340C15 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E7A1023440B1B00340C15 /* ShareSheet.swift */; };
 		8F2953B422AD6DF7000625CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2953B322AD6DF7000625CB /* AppDelegate.swift */; };
 		8F2953B622AD6DF7000625CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2953B522AD6DF7000625CB /* SceneDelegate.swift */; };
 		8F2953B822AD6DF7000625CB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2953B722AD6DF7000625CB /* ContentView.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C7E7A1023440B1B00340C15 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		8F2953B022AD6DF7000625CB /* HNNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HNNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F2953B322AD6DF7000625CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F2953B522AD6DF7000625CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				8F2953B722AD6DF7000625CB /* ContentView.swift */,
 				8F775E1322B0361800FDDEF2 /* StoryWebView.swift */,
 				8F73327722CABF3C004AC6E3 /* Assets.xcassets */,
+				7C7E7A1023440B1B00340C15 /* ShareSheet.swift */,
 				8F2953BE22AD6DF9000625CB /* LaunchScreen.storyboard */,
 				8F2953C122AD6DF9000625CB /* Info.plist */,
 			);
@@ -306,6 +309,7 @@
 				8F2953B822AD6DF7000625CB /* ContentView.swift in Sources */,
 				8F775E1422B0361800FDDEF2 /* StoryWebView.swift in Sources */,
 				8F78A22822ADA3B000DF08A5 /* Story.swift in Sources */,
+				7C7E7A1123440B1B00340C15 /* ShareSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
