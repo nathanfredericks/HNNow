@@ -15,8 +15,8 @@
 
 **October**
 - [ ] Use Combine _and_ `URLSession` for network requests
-- [ ] Add support for sharing stories
-- [ ] Show error when not connected to internet
+- [x] Add support for sharing stories
+- [x] Show error when not connected to internet
 - [ ] Begin TestFlight testing
 
 **November**
