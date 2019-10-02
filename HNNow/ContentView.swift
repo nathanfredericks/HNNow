@@ -23,6 +23,7 @@ struct ContentView : View {
                 Picker("Feed type", selection: $store.feedType) {
                     ForEach(FeedType.allCases, id: \.self) { type in
                         Text(type.rawValue).tag(type)
+                        .accessibility(label: Text("Select \(type.rawValue)"))
                     }
                 }.pickerStyle(SegmentedPickerStyle())
                 
