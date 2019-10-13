@@ -16,8 +16,10 @@ struct StoryRow : View {
             Text(story.title)
                 .font(.headline)
                 .lineLimit(2)
+                .accessibility(label: Text(story.title))
             Text("\(story.score) points by \(story.by)")
                 .font(.subheadline)
+                .accessibility(label: Text("\(story.score) points by \(story.by)"))
         }
     }
 }
