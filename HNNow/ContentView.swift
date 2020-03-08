@@ -31,7 +31,11 @@ struct ContentView : View {
                     NavigationLink(destination: StoryWebView(story: story)) {
                         StoryRow(story: story)
                             .onAppear {
-                                self.store.incrementVisibleRows()
+                                let index = self.store.stories.firstIndex(of: story)!
+                                guard index == (self.store.stories.count - 6) else { return }
+                                
+                                self.store.page += 1
+                                self.store.fetchStories(feed: self.store.feedType, page: self.store.page)
                             }
                     }
                 }

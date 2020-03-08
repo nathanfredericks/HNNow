@@ -15,7 +15,6 @@ final class StoryStore: ObservableObject {
         didSet {
             stories.removeAll()
             page = 0
-            visibleRows = 0
             fetchStories(feed: feedType)
         }
     }
@@ -23,17 +22,13 @@ final class StoryStore: ObservableObject {
     @Published var stories = [Story]()
     @Published private(set) var isLoading = false
 
-    private var visibleRows = 0
-    private var page = 0
+    var page = 0
     
-    func incrementVisibleRows() {
-        visibleRows += 1
+    func incrementPage(index: Int) {
+        guard index == (stories.count - 1) else { return }
         
-        // If there are 5 rows left, fetch more stories
-        if stories.count - visibleRows == 5 {
-            page += 1
-            fetchStories(feed: feedType, page: page)
-        }
+        page += 1
+        fetchStories(feed: feedType, page: page)
     }
     
     func fetchStories(feed: FeedType, page: Int = 0) {

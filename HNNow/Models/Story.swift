@@ -8,13 +8,17 @@
 
 import SwiftUI
 
-struct Story: Identifiable, Decodable {
+struct Story: Identifiable, Decodable, Equatable {
     let id: Int
     let by: String
     let score: Int
     let title: String
     let url: URL?
     let time: Date
+    
+    static func ==(lhs: Story, rhs: Story) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
 
 #if DEBUG
