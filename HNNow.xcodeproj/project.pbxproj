@@ -118,6 +118,7 @@
 				8F2953B322AD6DF7000625CB /* AppDelegate.swift */,
 				8F2953B522AD6DF7000625CB /* SceneDelegate.swift */,
 				8FBD78C422ADB81300420163 /* HackerNewsService.swift */,
+				8FB4AB7222AD7DB200363A7C /* StoryStore.swift */,
 				8F2953B722AD6DF7000625CB /* ContentView.swift */,
 				8F775E1322B0361800FDDEF2 /* StoryWebView.swift */,
 				8F73327722CABF3C004AC6E3 /* Assets.xcassets */,
@@ -160,7 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				8F78A22722ADA3B000DF08A5 /* Story.swift */,
-				8FB4AB7222AD7DB200363A7C /* StoryStore.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
