@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		653C2E032344468C008C9619 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653C2E022344468C008C9619 /* NetworkManager.swift */; };
 		7C7E7A1123440B1B00340C15 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E7A1023440B1B00340C15 /* ShareSheet.swift */; };
 		8F2953B422AD6DF7000625CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2953B322AD6DF7000625CB /* AppDelegate.swift */; };
 		8F2953B622AD6DF7000625CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2953B522AD6DF7000625CB /* SceneDelegate.swift */; };
@@ -43,7 +42,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		653C2E022344468C008C9619 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		7C7E7A1023440B1B00340C15 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		8F2953B022AD6DF7000625CB /* HNNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HNNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F2953B322AD6DF7000625CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 				7C7E7A1023440B1B00340C15 /* ShareSheet.swift */,
 				8F2953BE22AD6DF9000625CB /* LaunchScreen.storyboard */,
 				8F2953C122AD6DF9000625CB /* Info.plist */,
-				653C2E022344468C008C9619 /* NetworkManager.swift */,
 			);
 			path = HNNow;
 			sourceTree = "<group>";
@@ -306,7 +303,6 @@
 				8F78FADB22B0449700A9FCA4 /* ActivityIndicatorView.swift in Sources */,
 				8F775E1222B0359400FDDEF2 /* WebView.swift in Sources */,
 				8F2953B422AD6DF7000625CB /* AppDelegate.swift in Sources */,
-				653C2E032344468C008C9619 /* NetworkManager.swift in Sources */,
 				8F2953B622AD6DF7000625CB /* SceneDelegate.swift in Sources */,
 				8F7FE12822AD774900EBD44D /* StoryRow.swift in Sources */,
 				8FB4AB7322AD7DB200363A7C /* StoryStore.swift in Sources */,
