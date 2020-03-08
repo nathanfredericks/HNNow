@@ -23,14 +23,7 @@ final class StoryStore: ObservableObject {
     @Published private(set) var isLoading = false
 
     var page = 0
-    
-    func incrementPage(index: Int) {
-        guard index == (stories.count - 1) else { return }
-        
-        page += 1
-        fetchStories(feed: feedType, page: page)
-    }
-    
+
     func fetchStories(feed: FeedType, page: Int = 0) {
         let hackerNewsService = HackerNewsService()
         
