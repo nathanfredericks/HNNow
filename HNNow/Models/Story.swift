@@ -14,12 +14,13 @@ struct Story: Identifiable, Decodable {
     let score: Int
     let title: String
     let url: URL?
+    let time: Date
 }
 
 #if DEBUG
 let testStories = [
-    Story(id: 8863, by: "dhouston", score: 111, title: "My YC app: Dropbox - Throw away your USB drive", url: URL(string: "http://www.getdropbox.com/u/2/screencast.html")),
-    Story(id: 121003, by: "tel", score: 25, title: "Ask HN: The Arc Effect", url: nil)
+    Story(id: 8863, by: "dhouston", score: 111, title: "My YC app: Dropbox - Throw away your USB drive", url: URL(string: "http://www.getdropbox.com/u/2/screencast.html"), time: Date()),
+    Story(id: 121003, by: "tel", score: 25, title: "Ask HN: The Arc Effect", url: nil, time: Date())
 ]
 #endif
 

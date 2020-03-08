@@ -17,8 +17,18 @@ struct StoryRow : View {
                 .font(.headline)
                 .lineLimit(2)
             Text("\(story.score) points by \(story.by)")
+                .font(.subheadline) +
+                Text(" \(relativeDate(for: story.time))")
                 .font(.subheadline)
+                .foregroundColor(.secondary)
         }
+    }
+    
+    private func relativeDate(for date: Date) -> String {
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .short
+        
+        return formatter.localizedString(for: date, relativeTo: Date())
     }
 }
 

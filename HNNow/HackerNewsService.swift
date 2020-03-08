@@ -41,6 +41,7 @@ struct HackerNewsService {
             
             do {
                 let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .secondsSince1970
                 let stories = try decoder.decode([Story].self, from: data)
                 
                 DispatchQueue.main.async {
