@@ -13,7 +13,7 @@ struct StoryWebView : View {
     @State private var showSheet = false
     
     var body: some View {
-        WebView(request: URLRequest(url: story.url!))
+        WebView(request: URLRequest(url: story.url ?? URL(string: "https://google.com")!))
             .navigationBarItems(trailing:
                 HStack {
                     Button(action: {
