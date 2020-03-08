@@ -13,11 +13,9 @@ struct StoryWebView : View {
     @State private var showSheet = false
     
     var body: some View {
-        
         WebView(request: URLRequest(url: story.url!))
             .navigationBarItems(trailing:
                 HStack {
-                    
                     Button(action: {
                         UIApplication.shared.open(self.story.url!)
                     }) {
@@ -26,22 +24,16 @@ struct StoryWebView : View {
                             .accessibility(label: Text("Open in Safari"))
                     }
                     
-                    Spacer(minLength: 20)
-                    
                     Button(action: {
-                        
                         self.showSheet = true
-                        
                     }) {
                         Image(systemName: "square.and.arrow.up")
                             .foregroundColor(.blue)
-                            .accessibility(label: Text("Share the Story"))
-                    }.sheet(isPresented: self.$showSheet) {
-                        
+                            .accessibility(label: Text("Share story"))
+                    }.sheet(isPresented: $showSheet) {
                         ActivityViewController(url: self.story.url!)
                     }
                 }
-                
         ).navigationBarTitle("", displayMode: .inline)
     }
 }
